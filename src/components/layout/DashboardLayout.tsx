@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+<<<<<<< HEAD
 import { getPlan, planLabel, isTrialActive, trialDaysRemaining } from '../../lib/plans'
+=======
+import { getPlan, planLabel } from '../../lib/plans'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 import { userInitials } from '../../lib/format'
 import { AppFooter } from '../AppFooter'
 
@@ -119,7 +123,11 @@ export function DashboardLayout() {
             <div className="breadcrumb-current">{location.pathname === '/dashboard' ? 'Overview' : ''}</div>
           </div>
           <div className="topbar-right">
+<<<<<<< HEAD
             <div className="plan-pill"><span>{planLabel(plan)}</span>{isTrialActive(profile) && <small>{trialDaysRemaining(profile)}d trial</small>}</div>
+=======
+            <div className="plan-pill"><span>{planLabel(plan)}</span></div>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
             <div className="topbar-user">
               <div className="avatar" title={displayName}>{userInitials(displayName)}</div>
               <div className="topbar-user-copy">

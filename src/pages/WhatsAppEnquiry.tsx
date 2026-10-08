@@ -9,7 +9,11 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../contexts/AuthContext";
+<<<<<<< HEAD
 import { canAccessFeature, getPlan, hasActivePlanAccess } from "../lib/plans";
+=======
+import { canAccessFeature, getPlan } from "../lib/plans";
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 import { FeatureGate } from "../components/FeatureGate";
 
 type ListingIntent = "sale" | "rent" | "unknown";
@@ -811,7 +815,11 @@ export default function WhatsAppEnquiry() {
 
     try {
       const [propertyMatches, lead] = await Promise.all([
+<<<<<<< HEAD
         hasActivePlanAccess(profile) && canAccessFeature(getPlan(profile), "ai_matching") ? loadPropertyMatches(nextExtraction) : Promise.resolve([]),
+=======
+        canAccessFeature(getPlan(profile), "ai_matching") ? loadPropertyMatches(nextExtraction) : Promise.resolve([]),
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
         findExistingLead(nextExtraction.phone, nextExtraction.email, nextExtraction.name),
       ]);
 

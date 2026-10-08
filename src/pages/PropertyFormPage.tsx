@@ -1,7 +1,11 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+<<<<<<< HEAD
 import { canCreateProperty, getPlan, hasActivePlanAccess, PLAN_CONFIG } from '../lib/plans'
+=======
+import { canCreateProperty, getPlan, PLAN_CONFIG } from '../lib/plans'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 import { createProperty, updateProperty, useProperty, useProperties } from '../hooks/useProperties'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import {
@@ -90,11 +94,14 @@ export function PropertyFormPage() {
     }
 
     if (!isEdit) {
+<<<<<<< HEAD
       if (!hasActivePlanAccess(profile)) {
         setSubmitting(false)
         setError('Your free trial has ended. Choose a plan in Billing & payments to continue adding listings.')
         return
       }
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       const plan = getPlan(profile)
       const activeCount = properties.filter((item) => ['available', 'viewing', 'negotiation'].includes(item.status)).length
       if (!canCreateProperty(plan, activeCount)) {

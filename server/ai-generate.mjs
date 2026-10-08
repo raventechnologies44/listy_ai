@@ -1,5 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+<<<<<<< HEAD
 import { canAccessFeature, featureForAiTask, normalizePlan, hasActiveSubscription } from './plans.mjs'
+=======
+import { canAccessFeature, featureForAiTask, normalizePlan } from './plans.mjs'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 const TASK_PROMPTS = {
   property_description:
@@ -86,24 +90,40 @@ export async function verifySupabaseUser({ authHeader, supabaseUrl, supabaseAnon
 }
 
 export async function getUserPlan({ supabaseUrl, supabaseAnonKey, accessToken, userId }) {
+<<<<<<< HEAD
   if (!supabaseUrl || !supabaseAnonKey || !accessToken || !userId) return null
+=======
+  if (!supabaseUrl || !supabaseAnonKey || !accessToken || !userId) return 'professional'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
   try {
     const client = createClient(supabaseUrl, supabaseAnonKey, {
       global: { headers: { Authorization: `Bearer ${accessToken}` } },
       auth: { persistSession: false, autoRefreshToken: false },
     })
+<<<<<<< HEAD
     const { data, error } = await client.from('profiles').select('subscription_plan,subscription_status,trial_ends_at').eq('id', userId).maybeSingle()
     if (error) return null
     if (!hasActiveSubscription(data)) return null
     return normalizePlan(data?.subscription_plan)
   } catch {
     return null
+=======
+    const { data, error } = await client.from('profiles').select('subscription_plan').eq('id', userId).maybeSingle()
+    if (error) return 'professional'
+    return normalizePlan(data?.subscription_plan)
+  } catch {
+    return 'professional'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
   }
 }
 
 export function assertAiTaskAccess(plan, task) {
   const feature = featureForAiTask(task)
+<<<<<<< HEAD
   if (!plan || !feature || !canAccessFeature(plan, feature)) {
+=======
+  if (!feature || !canAccessFeature(plan, feature)) {
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
     throw new Error('This AI feature is not included in your current plan. Upgrade your ListyAI plan to continue.')
   }
 }

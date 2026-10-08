@@ -1,7 +1,11 @@
 import { FormEvent, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+<<<<<<< HEAD
 import { getPlan, PLAN_CONFIG, isTrialActive, trialDaysRemaining, type Plan } from '../lib/plans'
+=======
+import { getPlan, PLAN_CONFIG, type Plan } from '../lib/plans'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 const plans: Plan[] = ['starter', 'professional', 'agency']
 
@@ -55,9 +59,15 @@ export function BillingPage() {
         <div>
           <span className="eyebrow">BILLING</span>
           <h2 className="page-title">Plans & payments</h2>
+<<<<<<< HEAD
           <p className="muted">{isTrialActive(profile) ? `You are trying ${PLAN_CONFIG[currentPlan].name} free for 5 days. You can submit payment before the trial ends to continue without interruption.` : 'Choose a ListyAI plan and pay via EcoCash. Payments are manually verified for now.'}</p>
         </div>
         <div className="billing-current">{isTrialActive(profile) ? <>Free trial: <strong>{PLAN_CONFIG[currentPlan].name}</strong> · {trialDaysRemaining(profile)}d left</> : <>Current plan: <strong>{PLAN_CONFIG[currentPlan].name}</strong></>}</div>
+=======
+          <p className="muted">Choose a ListyAI plan and pay via EcoCash. Payments are manually verified for now.</p>
+        </div>
+        <div className="billing-current">Current plan: <strong>{PLAN_CONFIG[currentPlan].name}</strong></div>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       </div>
 
       <div className="billing-grid">

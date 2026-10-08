@@ -1,5 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+<<<<<<< HEAD
 import { canAccessFeature, normalizePlan, hasActiveSubscription } from './plans.mjs'
+=======
+import { canAccessFeature, normalizePlan } from './plans.mjs'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 function env(name) {
   return process.env[name] || ''
@@ -25,14 +29,23 @@ export async function verifyUser(authHeader) {
 
 export async function getAgentPlan(agentId) {
   const db = adminSupabase()
+<<<<<<< HEAD
   const { data, error } = await db.from('profiles').select('subscription_plan,subscription_status,trial_ends_at').eq('id', agentId).maybeSingle()
   if (error || !hasActiveSubscription(data)) return null
+=======
+  const { data, error } = await db.from('profiles').select('subscription_plan').eq('id', agentId).maybeSingle()
+  if (error) return 'professional'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
   return normalizePlan(data?.subscription_plan)
 }
 
 export async function assertWhatsAppBusinessAccess(agentId) {
   const plan = await getAgentPlan(agentId)
+<<<<<<< HEAD
   if (!plan || !canAccessFeature(plan, 'whatsapp_business')) {
+=======
+  if (!canAccessFeature(plan, 'whatsapp_business')) {
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
     throw new Error('WhatsApp Business is available on Professional and Agency plans.')
   }
   return plan

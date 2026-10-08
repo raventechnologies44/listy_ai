@@ -9,7 +9,11 @@ import {
 } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
 import { supabase, supabaseConfigured } from '../lib/supabase'
+<<<<<<< HEAD
 import type { Profile, Plan } from '../types/database'
+=======
+import type { Profile } from '../types/database'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 interface AuthContextValue {
   session: Session | null
@@ -17,7 +21,11 @@ interface AuthContextValue {
   profile: Profile | null
   loading: boolean
   profileLoading: boolean
+<<<<<<< HEAD
   signUp: (email: string, password: string, fullName: string, plan: Plan) => Promise<string | null>
+=======
+  signUp: (email: string, password: string, fullName: string) => Promise<string | null>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
   signIn: (email: string, password: string) => Promise<string | null>
   signOut: () => Promise<void>
   refreshProfile: () => Promise<void>
@@ -109,12 +117,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [fetchProfile])
 
   const signUp = useCallback(
+<<<<<<< HEAD
     async (email: string, password: string, fullName: string, plan: Plan) => {
+=======
+    async (email: string, password: string, fullName: string) => {
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       if (!supabaseConfigured) return 'Supabase is not configured. Add credentials to .env.local.'
       const { error } = await supabase.auth.signUp({
         email,
         password,
+<<<<<<< HEAD
         options: { data: { full_name: fullName.trim(), trial_plan: plan } },
+=======
+        options: { data: { full_name: fullName.trim() } },
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       })
       return error?.message ?? null
     },

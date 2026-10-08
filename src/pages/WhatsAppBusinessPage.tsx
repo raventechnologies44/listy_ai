@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+<<<<<<< HEAD
 import { canAccessFeature, getPlan, hasActivePlanAccess } from '../lib/plans'
+=======
+import { canAccessFeature, getPlan } from '../lib/plans'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 import { FeatureGate } from '../components/FeatureGate'
 
 declare global {
@@ -121,7 +125,11 @@ export default function WhatsAppBusinessPage() {
 
   const load = useCallback(async () => {
     if (!user?.id || !accessTokenRef.current || authLoading || profileLoading) return
+<<<<<<< HEAD
     if (profile && (!hasActivePlanAccess(profile) || !canAccessFeature(getPlan(profile), 'whatsapp_business'))) {
+=======
+    if (profile && !canAccessFeature(getPlan(profile), 'whatsapp_business')) {
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       setLoading(false)
       return
     }
@@ -253,7 +261,11 @@ export default function WhatsAppBusinessPage() {
 
   if (authLoading) return <div className="card pad">Loading your workspace…</div>
   if (!user) return null
+<<<<<<< HEAD
   if (!hasActivePlanAccess(profile) || !canAccessFeature(getPlan(profile), 'whatsapp_business')) {
+=======
+  if (!canAccessFeature(getPlan(profile), 'whatsapp_business')) {
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
     return (
       <div>
         <div style={{ marginBottom: 18 }}>

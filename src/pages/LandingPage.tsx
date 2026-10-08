@@ -47,7 +47,11 @@ export function LandingPage() {
                 scheduling and analytics into one professional workspace for real estate agents.
               </p>
               <div className="hero-actions">
+<<<<<<< HEAD
                 <Link to="/signup?plan=professional" className="btn btn-blue btn-lg">Start 5-day free trial</Link>
+=======
+                <Link to="/signup" className="btn btn-blue btn-lg">Start using ListyAI</Link>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
                 <Link to="/login" className="btn btn-lg">Sign in</Link>
               </div>
               <div className="hero-proof">
@@ -108,7 +112,11 @@ export function LandingPage() {
                   <span className="pricing-name">{name}</span>
                   <strong className="pricing-price">{price}<small>/month</small></strong>
                   <p>{description}</p>
+<<<<<<< HEAD
                   <Link to={`/signup?plan=${name.toLowerCase()}`} className={`btn ${index === 1 ? 'btn-blue' : ''}`}>Start free trial</Link>
+=======
+                  <Link to="/signup" className={`btn ${index === 1 ? 'btn-blue' : ''}`}>Get started</Link>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
                 </article>
               ))}
             </div>

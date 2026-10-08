@@ -44,6 +44,7 @@ export function featureForAiTask(task) {
 }
 
 export function canAccessFeature(plan, feature) {
+<<<<<<< HEAD
   if (!plan) return false
   return FEATURES[normalizePlan(plan)]?.has(feature) || false
 }
@@ -55,6 +56,11 @@ export function hasActiveSubscription(profile) {
   return new Date(profile.trial_ends_at).getTime() > Date.now()
 }
 
+=======
+  return FEATURES[normalizePlan(plan)]?.has(feature) || false
+}
+
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 export function planForTask(task) {
   return featureForAiTask(task)
 }

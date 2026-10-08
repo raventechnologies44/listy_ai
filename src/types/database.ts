@@ -1,5 +1,8 @@
 export type Plan = 'starter' | 'professional' | 'agency'
+<<<<<<< HEAD
 export type SubscriptionStatus = 'trial' | 'active' | 'expired' | 'pending'
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 export type PropertyType =
   | 'house'
@@ -29,9 +32,12 @@ export interface Profile {
   created_at: string
   updated_at: string
   subscription_plan?: Plan | null
+<<<<<<< HEAD
   subscription_status?: SubscriptionStatus | null
   trial_started_at?: string | null
   trial_ends_at?: string | null
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 }
 
 export interface Property {

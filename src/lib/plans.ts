@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import type { Profile, SubscriptionStatus } from '../types/database'
+=======
+import type { Profile } from '../types/database'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 export type Plan = 'starter' | 'professional' | 'agency'
 
@@ -100,6 +104,7 @@ export function planPrice(plan: Plan): string {
   return `US$${PLAN_CONFIG[plan].price}/month`
 }
 
+<<<<<<< HEAD
 export function isTrialActive(profile: Profile | null | undefined, now = new Date()): boolean {
   if (!profile?.trial_ends_at) return false
   if (profile.subscription_status !== 'trial') return false
@@ -131,6 +136,8 @@ export function subscriptionStatusLabel(status: SubscriptionStatus | null | unde
   return 'Subscription'
 }
 
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 export function featureUpgradeMessage(feature: FeatureKey): string {
   const professionalFeatures: FeatureKey[] = [
     'ai_whatsapp_marketing',

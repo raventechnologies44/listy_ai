@@ -3,7 +3,10 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { supabaseConfigured } from '../lib/supabase'
 import { LoadingSpinner } from '../components/LoadingSpinner'
+<<<<<<< HEAD
 import { PLAN_CONFIG, type Plan } from '../lib/plans'
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 type Mode = 'login' | 'signup'
 
@@ -12,13 +15,19 @@ export function AuthPage({ mode }: { mode: Mode }) {
   const navigate = useNavigate()
   const location = useLocation()
   const from = (location.state as { from?: string } | null)?.from ?? '/dashboard'
+<<<<<<< HEAD
   const requestedPlan = new URLSearchParams(location.search).get('plan') as Plan | null
   const initialPlan: Plan = requestedPlan === 'starter' || requestedPlan === 'professional' || requestedPlan === 'agency' ? requestedPlan : 'starter'
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [fullName, setFullName] = useState('')
+<<<<<<< HEAD
   const [selectedPlan, setSelectedPlan] = useState<Plan>(initialPlan)
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const notice = (location.state as { notice?: string } | null)?.notice
@@ -32,7 +41,11 @@ export function AuthPage({ mode }: { mode: Mode }) {
     setSubmitting(true)
 
     if (mode === 'signup') {
+<<<<<<< HEAD
       const err = await signUp(email.trim(), password, fullName.trim(), selectedPlan)
+=======
+      const err = await signUp(email.trim(), password, fullName.trim())
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
       setSubmitting(false)
       if (err) {
         setError(err)
@@ -67,7 +80,11 @@ export function AuthPage({ mode }: { mode: Mode }) {
         </h1>
         <p className="muted" style={{ marginTop: 0 }}>
           {mode === 'signup'
+<<<<<<< HEAD
             ? 'Choose a plan and start your 5-day free trial. No payment is required to begin.'
+=======
+            ? 'Start managing properties in your agent dashboard.'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
             : 'Sign in to access your properties and profile.'}
         </p>
 
@@ -113,6 +130,7 @@ export function AuthPage({ mode }: { mode: Mode }) {
               />
             </div>
           )}
+<<<<<<< HEAD
           {mode === 'signup' && (
             <div className="field">
               <label className="label">Choose your plan</label>
@@ -133,6 +151,8 @@ export function AuthPage({ mode }: { mode: Mode }) {
               <small className="field-help">Your selected plan is free for 5 days. You can pay after the trial.</small>
             </div>
           )}
+=======
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
           <div className="field">
             <label className="label" htmlFor="email">
               Email

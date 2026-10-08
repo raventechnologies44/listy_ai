@@ -2,7 +2,11 @@ import { FormEvent, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { LoadingSpinner } from '../components/LoadingSpinner'
+<<<<<<< HEAD
 import { getPlan, PLAN_CONFIG, planPrice, isTrialActive, isTrialExpired, trialDaysRemaining, type Plan } from '../lib/plans'
+=======
+import { getPlan, PLAN_CONFIG, planPrice, type Plan } from '../lib/plans'
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
 
 const planFeatures: Record<Plan, string[]> = {
   starter: [
@@ -113,6 +117,7 @@ export function ProfilePage() {
             </div>
             <strong>{planPrice(plan)}</strong>
           </div>
+<<<<<<< HEAD
           {isTrialActive(profile) ? (
             <div className="info-banner" style={{ marginBottom: 14 }}>
               <strong>{trialDaysRemaining(profile)} day{trialDaysRemaining(profile) === 1 ? '' : 's'} left</strong> in your free {config.name} trial. No payment is required until the trial ends.
@@ -123,6 +128,9 @@ export function ProfilePage() {
             </div>
           ) : null}
           <p className="muted">Your plan controls which ListyAI capabilities are available to your account.</p>
+=======
+          <p className="muted">Your plan controls which advanced ListyAI capabilities are available to your account.</p>
+>>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
           <div className="plan-feature-list">
             {planFeatures[plan].map((feature) => <div key={feature}><span>✓</span>{feature}</div>)}
           </div>
