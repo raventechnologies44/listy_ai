@@ -57,3 +57,4 @@ Never commit `.env.local`, Anthropic keys, Supabase service-role keys, Meta app 
 New accounts select Starter, Professional or Agency during sign-up and receive 5 days of free access to the selected plan. Trial timing is stored in Supabase (`trial_started_at` / `trial_ends_at`) and enforced server-side. Run `supabase/migrations/008_free_trial.sql` before deploying this version. Existing accounts remain active and are not changed.
 =======
 >>>>>>> c98eb7acb7cfce65c1b4c0831f03af377b3b7569
+
